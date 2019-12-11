@@ -1420,3 +1420,19 @@ class BitcoinAtom(Coin):
         '''Return the block header bytes'''
         deserializer = cls.DESERIALIZER(block)
         return deserializer.read_header(height, cls.BASIC_HEADER_SIZE)
+
+
+class Badcoin(AuxPowMixin, Coin):
+    NAME = "Badcoin"
+    SHORTNAME = "BAD"
+    NET = "mainnet"
+
+    DESERIALIZER = lib_tx.DeserializerAuxPowSegWit
+    GENESIS_HASH = ('00000631170923bb3d28727d9a8b3166'
+                    'ec0c5db3bc816a2be27657d6caa93942')
+    TX_COUNT = 1
+    TX_COUNT_HEIGHT = 1
+    TX_PER_BLOCK = 2
+    RPC_PORT = 10889
+    PEERS = [
+    ]
